@@ -1,0 +1,5 @@
+การเริ่มต้น Project ใหม่
+====================
+1. ใช้คำสั่ง npm init เพื่อสร้าง File package.json
+2. Copy Folder .vscode มาจาก Project อื่น (มีประโยชน์ในการใช้ Debug Node App)
+3. เริ่มต้นเขียน Code ได้เลย

@@ -1,0 +1,6 @@
+Upload Existing Project ไปบน Github
+===================================
+1. สร้าง New Repository บน Github
+2. ใส่คำสั่ง git init -b master
+3. เพิ่ม File .gitignore
+4. ใส่คำสั่ง git add .
