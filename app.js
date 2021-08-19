@@ -15,9 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //#region Routes
 
-const shopRoutes = require('./routes/shop');
 
-app.use(shopRoutes);
 
 //#endregion
 
