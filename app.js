@@ -1,23 +1,20 @@
-//#region 3rd Package
+const path = require('path');
 
 const express = require('express');
-
-//#endregion
 
 const app = express();
 app.set('view engine', 'ejs');
 
-//#region Midleware
-
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-//#endregion
+const indexRoutes = require('./routes/index');
+const usersRoutes = require('./routes/users');
+const errorsRoutes = require('./routes/errors');
 
-//#region Routes
-
-
-
-//#endregion
+app.use(indexRoutes);
+app.use('/users', usersRoutes);
+app.use('/errors', errorsRoutes);
 
 app.listen(3000, () => {
     console.log(`Server Started @ ${new Date()}`);
