@@ -1,11 +1,10 @@
 {
-  "name": "shop_clean",
+  "name": "client-app",
   "version": "1.0.0",
-  "description": "Shop App in a Cleaner Way",
+  "description": "Lazada Clone Client App",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sanya P.",
   "license": "ISC",
