@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../includes/head.ejs') %>
+    <%- include('../includes/styles.ejs') %>
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-12">
+                <div class="col-middle">
+                    <div class="text-center text-center">
+                        <h1 class="error-number"><%= err.statusCode %></h1>
+                        <h2>Sorry but Website is Error.</h2>
+                        <p>
+                            <%= err.message %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../includes/scripts.ejs') %>
+</body>
+
+</html>
