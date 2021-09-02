@@ -1,25 +1,38 @@
-//#region 3rd Package
-
 const express = require('express');
-
-//#endregion
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
 
 const app = express();
 app.set('view engine', 'ejs');
 
-//#region Midleware
-
 app.use(express.urlencoded({ extended: false }));
 
-//#endregion
+app.get('/', (req, res) => {
+    res.render('index');
+});
 
-//#region Routes
+const { uploadFile, getFileStream } = require('./s3');
+app.post('/', upload.single('image'), async (req, res) => {
+    const file = req.file;
+    const description = req.body.description;
 
-const shopRoutes = require('./routes/shop');
+    const result = await uploadFile(file);
+    console.log(result);
 
-app.use(shopRoutes);
+    res.send({ imagePath: `/images/${result.Key}` });
+});
 
-//#endregion
+app.get('/images/:key', (req, res) => {
+    const key = req.params.key;
+
+    const readStream = getFileStream(key);
+
+    readStream.pipe(res);
+});
+
+app.get('/next', (req, res) => {
+    res.render('next');
+});
 
 app.listen(3000, () => {
     console.log(`Server Started @ ${new Date()}`);
