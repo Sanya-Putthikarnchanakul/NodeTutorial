@@ -1,24 +1,17 @@
-//#region 3rd Package
-
 const express = require('express');
 
-//#endregion
+const { firebaseSetup } = require('./firebase-setup');
 
 const app = express();
 app.set('view engine', 'ejs');
 
-//#region Midleware
-
 app.use(express.urlencoded({ extended: false }));
 
-//#endregion
+const uploadRoute = require('./routes/upload');
 
-//#region Routes
-
-
-
-//#endregion
+app.use('/upload', uploadRoute);
 
 app.listen(3000, () => {
+    firebaseSetup();
     console.log(`Server Started @ ${new Date()}`);
 });
